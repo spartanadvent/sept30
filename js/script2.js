@@ -154,4 +154,29 @@ function button_code(){
     // });
     
     
-});
+});    button.addEventListener('click',function(event) {
+             
+             attach_element('li');
+             
+             current_element.textContent = String(random_color());
+             current_element.style.backgroundColor = current_element.textContent;
+             
+        current_element.addEventListener('click', function(){
+               if (update_input.value === '' || update_input.value === null ){
+                  return current_element.textContent = String(random_color());}
+                         current_element.style.backgroundColor = current_element.textContent;
+                   
+                this.textContent = update_input.value;
+                this.style.backgroundColor = update_input.value;
+            });     
+             
+        current_element.addEventListener('contextmenu', function(el){
+                
+                    this.remove();
+                    el.preventDefault();
+                    return false;
+                
+                },false);
+             
+             ordered_list.appendChild(current_element);
+         });
